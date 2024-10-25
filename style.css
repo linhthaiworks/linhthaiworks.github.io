@@ -1,0 +1,198 @@
+*{
+    box-sizing: border-box; /* pour que les padding et margin ne modifient pas la taille de l'élément */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: 'Space Grotesk Regular';
+    src: url(fonts/SpaceGrotesk-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Space Grotesk Bold';
+    src: url(fonts/SpaceGrotesk-Bold.ttf);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Space Grotesk Regular';
+    background-color: #fff;
+}
+
+header {
+    background-color: black;
+    padding: 16px 40px 16px 40px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+.navbar ul li {
+    display: inline-block;    
+}
+
+.navbar ul li a{
+    font-size: 28px;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;   
+}
+
+.right-links li a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 28px;
+    margin-left: 2rem;
+}
+
+.right-links {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar ul li a:hover {
+    color: #bbb;
+}
+
+main {
+    font-family: 'Space Grotesk Regular';
+    text-align: center;
+    color: black;
+}
+
+
+.scrolling-title {
+    display: flex;
+    white-space: nowrap; /* Ensures text stays on one line */
+    overflow: hidden; /* Hides text when out of the container */
+    box-sizing: border-box;
+  }
+  
+.scrolling-title span {
+    font-family: 'Space Grotesk Bold';
+    font-size: 180px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding-right: 50px; /* Adjust this to control the gap between the repetitions */
+    animation: scroll-left 15s linear infinite;/* Animation duration can be adjusted */
+}
+  
+@keyframes scroll-left {
+    0% {
+      transform: translateX(0); /* Start the text at the normal position */
+    }
+    100% {
+      transform: translateX(-100%); /* Move text to 50% off the screen */
+    }
+  }
+
+.introduction {
+    font-size: 30px;
+    margin: 0 40px 2rem 40px;
+
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: black;
+    margin: 0px 0px 2rem 0px; 
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.category-btn {
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.category-btn:hover {
+    background-color: #333;
+}
+
+.construction{
+  text-align: center;
+  font-size: 30px;
+  margin: 0 40px 2rem 40px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Define 4 equal-width columns */
+  grid-template-rows: repeat(6, auto); /* Define 6 rows, auto height */
+  gap: 20px; /* Add spacing between grid items */
+  grid-template-areas: 
+    "image1 image1 text1 text1"
+    "image2 image2 image2 image3"
+    ". text2 text2 ."
+    "image4 . text3 text3";
+}
+
+.item {
+  background-color: #f0f0f0; /* Just a visual aid */
+}
+
+.image1 {
+  grid-area: image1; /* Position based on grid-template-areas */
+}
+
+.text1 {
+  grid-area: text1;
+}
+
+.image2 {
+  grid-area: image2;
+}
+
+.image3 {
+  grid-area: image3;
+}
+
+.text2 {
+  grid-area: text2;
+}
+
+.image4 {
+  grid-area: image4;
+}
+
+.text3 {
+  grid-area: text3;
+}
+
+/* Optional: Make images responsive */
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f4f4f4;
+    margin-top: 2rem;
+}
