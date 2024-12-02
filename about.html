@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/env5dcd.css">
+    <link rel="stylesheet" href="https://use.typekit.net/env5dcd.css">
+</head>
+
+<body>
+    <div class="nav pinned">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="about__container">
+        <p class="about__container-data">
+            Hello world! My name is <span>Khanh-Linh Thai (Linh)</span>  <br>
+            a graphic design student, born and raised in <span>Vietnam</span>, <br>
+            currently based in <span>Amiens, France.</span>
+        </p>
+        <p>
+            I'm looking for an internship right now! <br>
+            <span class="about__container-contact-link">
+                <a href="https://shorturl.at/3JdSd" target="_blank">Here is my CV</a>
+            </span>
+        </p>
+    </div>
+    <div class="cursor-follow">
+        <img src="img/me.jpg" alt="Cursor Image">
+    </div>
+    
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/locomotive-scroll/4.1.3/locomotive-scroll.min.js"></script>
+<script src="script.js"></script>
+<script>
+    // Truy xuất phần tử
+const follower = document.querySelector(".cursor-follow");
+
+// Biến lưu vị trí chuột
+let mouseX = 0, mouseY = 0, posX = 0, posY = 0;
+
+// Lắng nghe sự kiện "mousemove"
+document.addEventListener("mousemove", (e) => {
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+});
+
+// TweenMax Animation: Di chuyển hình ảnh mượt
+TweenMax.to({}, 0.01, {
+    repeat: -1,
+    onRepeat: () => {
+        // Tính toán vị trí mới (hiệu ứng chậm)
+        posX += (mouseX - posX) / 10;
+        posY += (mouseY - posY) / 10;
+
+        // Cập nhật vị trí phần tử `.cursor-follow`
+        TweenMax.set(follower, {
+            css: {
+                left: posX,
+                top: posY,
+            }
+        });
+    }
+});
+
+    const scroll = new LocomotiveScroll({
+        el: document.querySelector('#js-scroll'),
+        smooth: true,
+        smoothMobile: true,
+        inertia: 0.75,
+    });
+
+    TweenMax.from(".cursor-follow", 2, {
+        delay: 0.5,
+        opacity: 0
+    });
+
+    follower = document.querySelector(".cursor-follow");
+
+    posX = 0;
+    posY = 0;
+    mouseX = 0;
+    mouseY = 0;
+
+    TweenMax.to({}, 0.016, {
+        repeat: -1,
+        onRepeat: function() {
+            posX += (mouseX - posX) / 9;
+            posY += (mouseY - posY) / 9;
+            TweenMax.set(follower, {
+            css: {
+                left: posX - 40,
+                top: posY - 40
+            }
+        });
+        }
+        
+    });
+
+    document.addEventListener("mousemove", function(e) {
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+    });
+
+</script>
+
+
+</html>
